@@ -42,7 +42,7 @@ jobs:
           path: dist
       - uses: actions-ecosystem/action-get-latest-tag@v1
         id: get-latest-tag
-        with:
+        inputs:
           semver_only: true
       - name: Docker meta
         id: meta
