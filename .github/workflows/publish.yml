@@ -40,17 +40,17 @@ jobs:
         with:
           name: build
           path: dist
-      - name: Get latest tag
-        id: tag
-        run: |
-          echo "::set-output name=latest::$(git describe --tags --abbrev=0 | cut -c2-)"
+      - uses: actions-ecosystem/action-get-latest-tag@v1
+        id: get-latest-tag
+        with:
+          semver_only: true
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
         with:
           images: savid/enode-discoverer
           tags: |
-            type=raw,value=${{ steps.tag.outputs.latest }}
+            type=raw,value=${{ steps.get-latest-tag.outputs.tag }}
             type=raw,value=latest
             type=sha
       - name: Log in to Docker Hub
