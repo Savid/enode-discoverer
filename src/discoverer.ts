@@ -7,7 +7,7 @@ import {
   DNS_NETWORKS,
   MAX_PEERS,
   REFRESH_INTERVAL,
-  REMOTE_URL,
+  REMOTE_SEND_ENDPOINT,
   REMOTE_SECRET,
   REMOTE_SEND_INTERVAL,
 } from '#app/constants';
@@ -80,7 +80,7 @@ export default class Discoverer {
     if (enodes.length) {
       try {
         this.abortController = new AbortController();
-        await fetch(REMOTE_URL, {
+        await fetch(REMOTE_SEND_ENDPOINT, {
           method: 'post',
           body: JSON.stringify(enodes),
           headers: {
@@ -89,8 +89,8 @@ export default class Discoverer {
           },
           signal: this.abortController?.signal,
         });
-        Metrics.remoteSends.labels('true').inc();
-        Metrics.remoteSendEnodess.inc(enodes.length);
+        Metrics.remoteSends.inc();
+        Metrics.remoteSendEnodes.inc(enodes.length);
       } catch (error) {
         if (error instanceof Error) {
           logger.error('send error', {
@@ -99,7 +99,7 @@ export default class Discoverer {
             enodesCount: enodes.length,
           });
         }
-        Metrics.remoteSends.labels('false').inc();
+        Metrics.remoteSendsFailed.inc();
       }
     }
   }
