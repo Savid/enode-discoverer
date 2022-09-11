@@ -61,7 +61,16 @@
           "failTitle": false
         }
       ],
-      "@semantic-release/git"
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "dist",
+            "package.json"
+          ],
+          "message": "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
+        }
+      ]
     ]
   },
   "imports": {
