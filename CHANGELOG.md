@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Savid/enode-discoverer/compare/v1.0.1...v1.0.2) (2022-09-11)
+
+
+### Bug Fixes
+
+* **ci:** publish trigger ([8a10725](https://github.com/Savid/enode-discoverer/commit/8a10725cb0c15a8b7f9206119de07ce5da849ca2))
+
 ## [1.0.1](https://github.com/Savid/enode-discoverer/compare/v1.0.0...v1.0.1) (2022-09-11)
 
 
