@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/Savid/enode-discoverer/compare/v1.0.9...v1.0.10) (2022-09-11)
+
+
+### Bug Fixes
+
+* **ci:** semver tag ([fb7e0ce](https://github.com/Savid/enode-discoverer/commit/fb7e0ce0d4f4ef56c7e4667ca1919f56bb50d337))
+
 ## [1.0.9](https://github.com/Savid/enode-discoverer/compare/v1.0.8...v1.0.9) (2022-09-11)
 
 
