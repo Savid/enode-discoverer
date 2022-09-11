@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/Savid/enode-discoverer/compare/v1.0.8...v1.0.9) (2022-09-11)
+
+
+### Bug Fixes
+
+* **ci:** get latest tag ([e4711fb](https://github.com/Savid/enode-discoverer/commit/e4711fb5825854e80ac109e5a5568899bb47369f))
+
 ## [1.0.8](https://github.com/Savid/enode-discoverer/compare/v1.0.7...v1.0.8) (2022-09-11)
 
 
