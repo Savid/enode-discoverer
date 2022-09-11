@@ -10,11 +10,15 @@ class Metrics {
 
   static remoteSends = new Counter({
     name: 'enode_discoverer_remote_send_total',
-    help: 'The total number of requests sent to remote',
-    labelNames: ['success'],
+    help: 'The total number of sent requests to remote',
   });
 
-  static remoteSendEnodess = new Counter({
+  static remoteSendsFailed = new Counter({
+    name: 'enode_discoverer_remote_send_failed_total',
+    help: 'The total number of failed sent requests to remote',
+  });
+
+  static remoteSendEnodes = new Counter({
     name: 'enode_discoverer_remote_send_enodes_total',
     help: 'The total number of enodes sent to remote',
   });

@@ -14,7 +14,8 @@ export const MAX_PEERS = !Number.isNaN(Number(process.env.MAX_PEERS))
   ? Number(process.env.MAX_PEERS)
   : undefined;
 
-export const REMOTE_URL: string = process.env.REMOTE_URL ?? 'http://localhost:8080';
+export const REMOTE_SEND_ENDPOINT: string =
+  process.env.REMOTE_URL ?? 'http://localhost:8080/enodes';
 export const { REMOTE_SECRET } = process.env;
 export const REMOTE_SEND_INTERVAL = !Number.isNaN(Number(process.env.REMOTE_SEND_INTERVAL))
   ? Number(process.env.REMOTE_SEND_INTERVAL)
