@@ -1,12 +1,11 @@
 name: publish
 on:
-  push:
-    tags:
-      - '*'
+  create:
 
 jobs:
   build:
     name: build
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
