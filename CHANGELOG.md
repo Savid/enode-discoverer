@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Savid/enode-discoverer/compare/v1.1.0...v1.2.0) (2022-09-12)
+
+
+### Features
+
+* cleanup ([ddb166c](https://github.com/Savid/enode-discoverer/commit/ddb166cb557cf7eef5333e894eb0a73c96bb32b3))
+
 # [1.1.0](https://github.com/Savid/enode-discoverer/compare/v1.0.11...v1.1.0) (2022-09-11)
 
 
