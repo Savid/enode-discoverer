@@ -3,7 +3,7 @@ import { collectDefaultMetrics, Counter, register } from 'prom-client';
 class Metrics {
   static collectDefaultMetrics = collectDefaultMetrics;
 
-  static discoveredEnodes = new Counter({
+  static discoveredENodes = new Counter({
     name: 'enode_discoverer_discovered_enodes_total',
     help: 'The total number of discovered enodes',
   });
@@ -18,7 +18,7 @@ class Metrics {
     help: 'The total number of failed sent requests to remote',
   });
 
-  static remoteSendEnodes = new Counter({
+  static remoteSendENodes = new Counter({
     name: 'enode_discoverer_remote_send_enodes_total',
     help: 'The total number of enodes sent to remote',
   });

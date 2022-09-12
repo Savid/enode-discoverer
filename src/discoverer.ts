@@ -8,7 +8,7 @@ import {
   MAX_PEERS,
   REFRESH_INTERVAL,
   REMOTE_SEND_ENDPOINT,
-  REMOTE_SECRET,
+  SHARED_SECRET,
   REMOTE_SEND_INTERVAL,
 } from '#app/constants';
 import Metrics from '#app/metrics';
@@ -18,7 +18,7 @@ export default class Discoverer {
 
   static dnsNetworks: Parameters<typeof peeper>[0]['dnsNetworks'] = [];
 
-  static discoveredEnodes: string[] = [];
+  static discoveredENodes: string[] = [];
 
   static sendInterval: NodeJS.Timeout | undefined;
 
@@ -56,8 +56,8 @@ export default class Discoverer {
         if (!this.started) break;
         if (error) throw error;
         if (enode) {
-          this.discoveredEnodes.push(enode);
-          Metrics.discoveredEnodes.inc();
+          this.discoveredENodes.push(enode);
+          Metrics.discoveredENodes.inc();
         }
       }
     } catch (error) {
@@ -76,7 +76,7 @@ export default class Discoverer {
   }
 
   static async send() {
-    const enodes = this.discoveredEnodes.splice(0);
+    const enodes = this.discoveredENodes.splice(0);
     if (enodes.length) {
       try {
         this.abortController = new AbortController();
@@ -85,12 +85,12 @@ export default class Discoverer {
           body: JSON.stringify(enodes),
           headers: {
             'Content-Type': 'application/json',
-            ...(REMOTE_SECRET && { Authorization: `Basic ${REMOTE_SECRET}` }),
+            ...(SHARED_SECRET && { Authorization: `Basic ${SHARED_SECRET}` }),
           },
           signal: this.abortController?.signal,
         });
         Metrics.remoteSends.inc();
-        Metrics.remoteSendEnodes.inc(enodes.length);
+        Metrics.remoteSendENodes.inc(enodes.length);
       } catch (error) {
         if (error instanceof Error) {
           logger.error('send error', {

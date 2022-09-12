@@ -16,7 +16,7 @@ export const MAX_PEERS = !Number.isNaN(Number(process.env.MAX_PEERS))
 
 export const REMOTE_SEND_ENDPOINT: string =
   process.env.REMOTE_URL ?? 'http://localhost:8080/enodes';
-export const { REMOTE_SECRET } = process.env;
+export const { SHARED_SECRET } = process.env;
 export const REMOTE_SEND_INTERVAL = !Number.isNaN(Number(process.env.REMOTE_SEND_INTERVAL))
   ? Number(process.env.REMOTE_SEND_INTERVAL)
-  : 30_000;
+  : 10_000;
